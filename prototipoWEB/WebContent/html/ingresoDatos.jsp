@@ -56,6 +56,9 @@
                    
                   </li>
                   
+                  <li><a href="/prototipoWEB/html/ingresoEstructuras.jsp"><i class="fa fa-database"></i> Ingreso estructuras </a>
+                   
+                  </li>
                 </ul>
               </div>
               

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@ page import= "com.as.samples.mongoDB" %> 
+<%@ page import="com.as.samples.mongoDB"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Meta, title, CSS, favicons, etc. -->
@@ -32,28 +32,33 @@
 <!-- Custom Theme Style -->
 <link href="http://localhost:8080/prototipoWEB/build/css/custom.min.css"
 	rel="stylesheet">
-	
-	<style>
+
+<style>
 table {
-    width:100%;
+	width: 100%;
 }
+
 table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
+
 th, td {
-    padding: 5px;
-    text-align: left;
+	padding: 5px;
+	text-align: left;
 }
+
 table#t01 tr:nth-child(even) {
-    background-color: #eee;
+	background-color: #eee;
 }
+
 table#t01 tr:nth-child(odd) {
-   background-color:#fff;
+	background-color: #fff;
 }
+
 table#t01 th {
-    background-color: black;
-    color: white;
+	background-color: black;
+	color: white;
 }
 </style>
 </head>
@@ -85,6 +90,8 @@ table#t01 th {
 										class="fa fa-bar-chart"></i> Calidad </span></a></li>
 								<li><a href="/prototipoWEB/html/opendata.jsp"><i
 										class="fa fa-check-square-o"></i> Madurez </a></li>
+								<li><a href="/prototipoWEB/html/ingresoEstructuras.jsp"><i
+										class="fa fa-database"></i> Ingreso estructuras </a></li>
 
 							</ul>
 						</div>
@@ -143,39 +150,55 @@ table#t01 th {
 							</ul>
 
 							<h1>General</h1>
-							
+
 							<%
 								mongoDB mdb = new mongoDB();
 								//out.write("<table> <tr> <th> Nombre set </th> <th> Token </th> </tr>");
-								
-								out.write(mdb.consultaids());						
+
+								out.write(mdb.consultaids());
 							%>
-							
+
 							<h2>Complete</h2>
 							<br>
-							 <iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/completos%20general?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/completos%20general?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Primary</h2>
-							 <iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/primarios%20general?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/primarios%20general?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Timely</h2>
 							<br>
-							 <iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/timely?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/timely?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Accessible</h2>
-							 <iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/accesibles?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/accesibles?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Machine Processable</h2>
-							<iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/machine_proccesable?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/machine_proccesable?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Non-Discriminatory</h2>
-							<iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/nodiscrimimatorio%20general?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/nodiscrimimatorio%20general?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>Non-Proprietary</h2>
-							<iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/no%20propietario%20general?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/no%20propietario%20general?"
+								width="550" height="400"></iframe>
 							<br>
 							<h2>License Free</h2>
-							<iframe  scrolling="no" style="border-width:0px;" src="http://Jose-XPS:8080/api/rest/public/process/license%20general?"  width="550" height="400"></iframe>
+							<iframe scrolling="no" style="border-width: 0px;"
+								src="http://Jose-XPS:8080/api/rest/public/process/license%20general?"
+								width="550" height="400"></iframe>
 
 							<br>
 
