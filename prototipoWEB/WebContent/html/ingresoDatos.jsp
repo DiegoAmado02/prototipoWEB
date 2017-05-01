@@ -46,7 +46,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="/prototipoWEB/html/ingresoDatos.html"><i class="fa fa-database"></i> Ingreso datos </a>
+                  <li><a href="/prototipoWEB/html/ingresoDatos.jsp"><i class="fa fa-database"></i> Ingreso datos </a>
                    
                   </li>
                   <li><a href="/prototipoWEB/Metricas"><i class="fa fa-bar-chart"></i> Calidad </span></a>
@@ -142,12 +142,12 @@
     </div>
 
     <!-- jQuery -->
-    <script src="http://localhost:8080/prototipoWEB/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost:8081/prototipoWEB/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="http://localhost:8080/prototipoWEB/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://localhost:8081/prototipoWEB/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
     <!-- Custom Theme Scripts -->
-    <script src="http://localhost:8080/prototipoWEB/build/js/custom.min.js"></script>
+    <script src="http://localhost:8081/prototipoWEB/build/js/custom.min.js"></script>
 
   </body>
 </html>

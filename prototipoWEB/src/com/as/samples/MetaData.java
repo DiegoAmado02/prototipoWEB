@@ -2,10 +2,12 @@ package com.as.samples;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import org.apache.commons.io.IOUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ObjectNode;
@@ -16,13 +18,20 @@ public class MetaData {
 	public MetaData() {
 		// TODO Auto-generated constructor stub
 	}
-	private static String streamToString(InputStream inputStream) {
-		 String text = new Scanner(inputStream, "UTF-8").useDelimiter("\\Z").next();
-		 return text;
+	private static String streamToString(InputStream inputStream) throws IOException {
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(inputStream, writer, "UTF-8");
+		String theString = writer.toString();
+		 
+		 //String text = new Scanner(inputStream, "UTF-8").useDelimiter("\\Z").next();
+		
+		 return theString;
 		}
 
-		public static String jsonGetRequest(String token) throws JSONException {
-			String  urlQueryString ="https://www.datos.gov.co/api/views/"+token+"/rows.json?accessType=DOWNLOAD";
+		public static String jsonGetRequest(String token,String id_estructura) throws JSONException {
+			//String  urlQueryString ="https://www.datos.gov.co/api/views/"+token+"/rows.json?accessType=DOWNLOAD";
+			String  urlQueryString ="https://www.datos.gov.co/api/views/"+token;
+			
 		 String json = null;
 		 ObjectNode node = null;
 		 String meta= null;
@@ -32,15 +41,21 @@ public class MetaData {
 		   connection.setDoOutput(true);
 		   connection.setInstanceFollowRedirects(false);
 		   connection.setRequestMethod("GET");
+		   connection.setConnectTimeout(5000); // 5 sec
+		   connection.setReadTimeout(10000); // 10 sec
 		   connection.setRequestProperty("Content-Type", "application/json");
 		   connection.setRequestProperty("charset", "utf-8");
+		   
 		   connection.connect();
+		  
 		   InputStream inStream = connection.getInputStream();
+		   
 		   json = streamToString(inStream); // input stream to string
-		   
+		  
 		   JSONObject object = new JSONObject(json);
-		   
-		   meta = "["+object.getJSONObject("meta").get("view")+"]";
+		   object.put("idestructura", id_estructura);
+		   object.put("id", token);
+		   meta = "["+object+"]";
 
 
 		   

@@ -109,11 +109,14 @@ public class Ingreso {
 		StringTokenizer tokenizer = new StringTokenizer(ids, ",");
 	    while (tokenizer.hasMoreTokens()) {
 	    	String token = tokenizer.nextToken();
+	    	
 	    	try{
+	    		
 	    		response = consumer.query(token,
 	    		HttpLowLevel.JSON_TYPE,
-	    		"SELECT * LIMIT 20000");
+	    		"SELECT * LIMIT 2000");
 			    payload = response.getEntity(String.class);
+			   
 				List keys1 = getKeysFromJson(payload);	
 				List<String> al = new ArrayList<>();
 				Set<String> hs = new HashSet<>();
@@ -122,14 +125,20 @@ public class Ingreso {
 				al.addAll(hs);
 				Collections.sort(al);
 				mongoDB insertar = new mongoDB();
-				System.out.println("prueba2");
-				if(linearIn(al,structureOne) || linearIn(al,structureTwo)){
-					
+				validarEstructura validacion = new validarEstructura();
+				//validacion de estructura
+				if(validacion.validacion(al)){
+					//validacion de si existe
+					System.out.println("pase la estructura");
 					if(insertar.validacion(token)){
+						System.out.println("entre a empezar a ingresar");
 						MetaData meta = new MetaData();
 						insertar.Insertar("contratos",payload,token);
-						insertar.Insertar("Tokens", meta.jsonGetRequest(token),token);
+						System.out.println("en medio de ambos");
+						validarEstructura valestruc = new validarEstructura();
+						insertar.InsertarTokens( meta.jsonGetRequest(token,valestruc.id_estructura),token);
 						int res;
+						
 				    	res=MetaData.nondiscrimynatory(token);
 				    	String resul;
 				    	resul=Integer.toString(res);
@@ -146,17 +155,17 @@ public class Ingreso {
 					retorno += "El conjunto de datos "+token+" no se inserto porque no cumple con la siguiente estuctura ["+implode(", ",structureOne)+"] <br>";
 				}
 			}catch(Exception e){
+				System.out.println(e);
+				
 				retorno += "El conjunto de datos "+token+" no existe en "+domain+"<br>";
 			}		
 	    }
 		return retorno;	
 	}
-	public static boolean linearIn(List<String> al, List<String>estructure) {
-		return Arrays.asList(al).containsAll(Arrays.asList(estructure));
-	}
+	
 	static List getKeysFromJson(String json) throws Exception
 	{
-		Object things = new Gson().fromJson(json, Object.class);
+		Object things = new Gson().fromJson(json.toLowerCase(), Object.class);
 	    List keys = new ArrayList();
 	    collectAllTheKeys(keys, things);
 	    return keys;
@@ -177,22 +186,7 @@ public class Ingreso {
 	    for (Object value : values)
 	    	collectAllTheKeys(keys, value);
 	}
-	private static void borrarArchivo(String direccion) {
-		File directorio = new File(direccion);
-	    File f;
-	    if (directorio.isDirectory()) {
-	    	String[] files = directorio.list();
-	        if (files.length > 0) {
-	        	System.out.println(" Directorio vacio: " + direccion);
-	            for (String archivo : files) {
-	            	System.out.println(archivo);
-	                f = new File(direccion + File.separator + archivo);
-	                f.delete();
-	                f.deleteOnExit();
-	            }
-	        }
-	    }
-	}
+
 	final public static String implode(String glue, List<String> array)
 	{
 	    boolean first = true;
