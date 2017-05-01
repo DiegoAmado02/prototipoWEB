@@ -112,28 +112,29 @@
 				<div class="container">
 					<h2>Prototipo</h2>
 					<div class="panel panel-default">
-						<div class="panel-heading">Ingrese los campos</div>
+						<div class="panel-heading">Ingrese las estructuras</div>
 						<div class="panel-body">
 							<form method="post" action="/prototipoWEB/IngresoEstructuras">
 								<div class="text-center">
 									<h1>Ingrese los ID´s</h1>
 								</div>
 								<div class="row">
-									<div class="col-md-3 col-md-offset-3">
-										Ingrese la estructura:Los campos deben ir separados por comas
-										(xxxx,xxxx,xxxx) <input type="text" name="campos"
-											class="form-control"> Inserte el dominio: <input
-											type="text" name="dominio" class="form-control">
+									<div class="col-md-3 col-md-offset-3"> Ingrese ID de la estructura: 
+										<input type="text" name="campos" class="form-control">
 									</div>
+									<div class="col-md-3">
+										Inserte el dominio: 
+										<input type="text" name="dominio" class="form-control">
+									</div>
+									<div class="col-md-1">
+										<br> <br> <input type="submit" value="enviar"
+											class="form-control">
+									</div>
+								</div>
 
-								</div>
-								<div class="col-md-1">
-									<br>
-									<br>
-									<input type="submit" value="enviar" class="form-control">
-								</div>
+							</form>
 						</div>
-						</form>
+
 
 
 					</div>

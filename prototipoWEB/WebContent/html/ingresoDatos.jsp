@@ -107,7 +107,7 @@
         <div class="container">
   <h2>Prototipo</h2>
   <div class="panel panel-default">
-    <div class="panel-heading">Ingrese losID´S</div>
+    <div class="panel-heading">Ingrese los ID´S</div>
     <div class="panel-body">
     	<form method="post" action="/prototipoWEB/recibirDatosServlet">
         <div class="text-center"> <h1>Ingrese los ID´s</h1></div>

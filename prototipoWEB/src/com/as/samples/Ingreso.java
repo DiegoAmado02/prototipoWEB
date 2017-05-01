@@ -152,7 +152,7 @@ public class Ingreso {
 					
 					
 				}else{
-					retorno += "El conjunto de datos "+token+" no se inserto porque no cumple con la siguiente estuctura ["+implode(", ",structureOne)+"] <br>";
+					retorno += "El conjunto de datos "+token+" no se inserto porque no cumple con la siguiente estuctura [" +implode(", ",structureOne)+ "] <br> <br> Si desea, vaya al siguiente link para agregarla <a href='/prototipoWEB/html/ingresoEstructuras.jsp'><ins>Insertar estructura</ins></a> <br>";
 				}
 			}catch(Exception e){
 				System.out.println(e);

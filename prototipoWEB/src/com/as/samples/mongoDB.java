@@ -80,18 +80,8 @@ public class mongoDB {
 			   
 			 }
 			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-	    	
-			System.out.println("ingrese los tokensitos");
-			   
-				
+			 System.out.println("ingrese los tokensitos");
+
 		
 		}
 	public void InsertarMongoTokens(String Tokens,String valor) throws IOException, JSONException{
@@ -154,7 +144,7 @@ public class mongoDB {
         //DBCursor iterable = db.getCollection("contratos").find(new BasicDBObject("disponibilidades_presupuestales", id));
         //DBCursor iterable = db.getCollection("contratos").find();
         DBCursor iterable = collection.find();
-        mensaje = "<table id='t01'> <tr> <th> Nombre set </th> <th> Token </th> </tr> ";
+        //mensaje = "<table id='t01'> <tr> <th> Nombre set </th> <th> Token </th> </tr> ";
         mensaje = "<table id='t01'> <tr> <th> Nombre set </th> <th> Token </th> </tr> ";
         while(iterable.hasNext()){//Recorreo la consulta
         	resultadoconsulta = new BasicDBObject((Map) iterable.next());
